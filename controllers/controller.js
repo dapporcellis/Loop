@@ -26,8 +26,15 @@ function add(req,res){
     })
 }
 
+function listar(req,res){
+    Usuario.find({}).then(function(usuarios){
+        res.render('lst.ejs',{Usuarios:usuarios})
+    })    
+}
+
 module.exports = {
     abreindex,
     abreadd,
-    add
+    add,
+    listar
 }
