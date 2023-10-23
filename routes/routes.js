@@ -12,4 +12,6 @@ router.post('/add',controller.add)
 
 router.get('/lst',controller.listar)
 
+router.post('/lst',controller.filtrar)
+
 module.exports = router

@@ -32,6 +32,10 @@ function listar(req,res){
     })    
 }
 
+function filtrar(req,res){
+    
+}
+
 module.exports = {
     abreindex,
     abreadd,
