@@ -32,13 +32,24 @@ function listar(req,res){
     })    
 }
 
-function filtrar(req,res){
-    
+function abreaddpaciente(req,res){
+    res.render('addpaciente.ejs')
+}
+
+function addpaciente(req,res){
+
+}
+
+function lstpaciente(req,res){
+
 }
 
 module.exports = {
     abreindex,
     abreadd,
     add,
-    listar
+    listar,
+    abreaddpaciente,
+    addpaciente,
+    lstpaciente
 }

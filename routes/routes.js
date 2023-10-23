@@ -12,6 +12,10 @@ router.post('/add',controller.add)
 
 router.get('/lst',controller.listar)
 
-router.post('/lst',controller.filtrar)
+router.get('/addpaciente', controller.abreaddpaciente)
+
+router.post('/addpaciente',controller.addpaciente)
+
+router.get('/lstpaciente',controller.lstpaciente)
 
 module.exports = router
