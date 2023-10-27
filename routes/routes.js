@@ -17,5 +17,6 @@ router.get('/addpaciente', controller.abreaddpaciente)
 router.post('/addpaciente',controller.addpaciente)
 
 router.get('/lstpaciente',controller.lstpaciente)
+router.post('/lstpaciente',controller.pesquisapaciente)
 
 module.exports = router

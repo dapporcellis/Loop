@@ -1,4 +1,5 @@
 const Usuario = require('../models/Usuario')
+const Paciente = require('../models/Paciente')
 
 function abreindex(req,res){
     res.render('index')
@@ -37,11 +38,37 @@ function abreaddpaciente(req,res){
 }
 
 function addpaciente(req,res){
-
+    
+    let paciente = new Paciente({
+        nome: req.body.nome,
+        endereco: req.body.endereco,
+        datanasc: req.body.datanasc,
+        sintomas: req.body.sintomas
+    })
+    paciente.save().then(function(docs,err){
+        console.log(docs)
+        res.redirect('/addpaciente')
+    })
 }
 
 function lstpaciente(req,res){
+    Paciente.find({}).then(function(pacientes,err){
+        if(err){
+            res.send(err.message)
+        }else{
+            res.render('lstpaciente.ejs',{Pacientes:pacientes})
+        }
+    })
+}
 
+function pesquisapaciente(req,res){
+    Paciente.find({nome: new RegExp(req.body.pesquisar, "i")}).then(function(pacientes,err){
+        if(err){
+            res.send(err.message)
+        }else{
+            res.render('lstpaciente.ejs',{Pacientes:pacientes})
+        }
+    })
 }
 
 module.exports = {
@@ -51,5 +78,6 @@ module.exports = {
     listar,
     abreaddpaciente,
     addpaciente,
-    lstpaciente
+    lstpaciente,
+    pesquisapaciente
 }
