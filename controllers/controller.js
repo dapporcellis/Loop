@@ -83,7 +83,18 @@ function abreedtpaciente(req,res){
 }
 
 function edtpaciente(req,res){
-
+    Paciente.findByIdAndUpdate(req.params.id, {
+        nome: req.body.nome,
+        endereco: req.body.endereco,
+        datanasc: req.body.datanasc,
+        sintomas: req.body.sintomas
+    }).then(function(paciente,err){
+        if(err){
+            res.send(err.message);
+        }else{
+            res.redirect('/lstpaciente');
+        }
+    })
 }
 
 function delpaciente(req,res){
