@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editar</title>
+</head>
+<body>
+    <form method="post">
+        <label for="id">Id</label>
+        <input type="text" name="id" id="id" required readonly value="<%=Paciente._id%>"><br>
+        <label for="nome">Nome</label>
+        <input type="text" name="nome" id="nome" required placeholder="Digite seu nome." value="<%=Paciente.nome%>"><br>
+        <label for="endereco">Endereço</label>
+        <input type="text" name="endereco" id="endereco" required placeholder="Digite seu endereço" value="<%=Paciente.endereco%>"><br>
+        <label for="datanasc">Data de Nascimento</label>
+        <input type="date" name="datanasc" id="datanasc" required value="<%=Paciente.datanasc%>"><br>
+        <label for="sintoma">Sintoma</label>
+        <textarea name="sintomas" id="sintoma" cols="30" rows="10"><%=Paciente.sintomas%></textarea>
+        <input type="submit" value="Adicionar">
+    </form>
+</body>
+</html>

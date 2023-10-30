@@ -19,6 +19,8 @@
             <th>Endereço</th>
             <th>Data de Nascimento</th>
             <th>Sintomas</th>
+            <th>Editar</th>
+            <th>Delete</th>
         </tr>
 
         <%Pacientes.forEach(function(paciente){%>
@@ -27,6 +29,8 @@
                 <td><%=paciente.endereco%></td>
                 <td><%=paciente.datanasc%></td>
                 <td><%=paciente.sintomas%></td>
+                <td><a href="/edtpaciente/<%=paciente._id%>">Editar</a></td>
+                <td><a href="/delpaciente/<%=paciente._id%>">Delete</a></td>
             </tr>
         <% }) %>
     </table>

@@ -71,6 +71,34 @@ function pesquisapaciente(req,res){
     })
 }
 
+
+function abreedtpaciente(req,res){
+    Paciente.findById(req.params.id).then(function(paciente,err){
+        if(err){
+            res.send(err.message)
+        }else{
+            res.render('edtpaciente.ejs',{Paciente:paciente})
+        }
+    })
+}
+
+function edtpaciente(req,res){
+
+}
+
+function delpaciente(req,res){
+    Paciente.findByIdAndDelete(req.params.id)
+        .then(function(paciente,err){
+            if(err){
+                res.send(err.message);
+            }else{
+                res.redirect('/lstpaciente')
+            }
+        })
+}
+
+
+
 module.exports = {
     abreindex,
     abreadd,
@@ -79,5 +107,8 @@ module.exports = {
     abreaddpaciente,
     addpaciente,
     lstpaciente,
-    pesquisapaciente
+    pesquisapaciente,
+    delpaciente,
+    abreedtpaciente,
+    edtpaciente
 }
