@@ -1,38 +1,30 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Listagem de Pacientes</title>
-</head>
-<body>
+<%-include('cabecalho.ejs')%>
 
-    <form method="post">
-        <input type="text" name="pesquisar" id="pesquisar">
-        <input type="submit" value="Pesquisar">
-    </form>
+<form method="post">
+    <input type="text" name="pesquisar" id="pesquisar">
+    <input type="submit" value="Pesquisar">
+</form>
 
 
-    <table border="1">
-        <tr>
-            <th>Nome</th>
-            <th>Endereço</th>
-            <th>Data de Nascimento</th>
-            <th>Sintomas</th>
-            <th>Editar</th>
-            <th>Delete</th>
-        </tr>
+<table>
+    <tr>
+        <th>Nome</th>
+        <th>Endereço</th>
+        <th>Data de Nascimento</th>
+        <th>Sintomas</th>
+        <th>Editar</th>
+        <th>Delete</th>
+    </tr>
 
-        <%Pacientes.forEach(function(paciente){%>
-            <tr>
-                <td><%=paciente.nome%></td>
-                <td><%=paciente.endereco%></td>
-                <td><%=paciente.datanasc%></td>
-                <td><%=paciente.sintomas%></td>
-                <td><a href="/edtpaciente/<%=paciente._id%>">Editar</a></td>
-                <td><a href="/delpaciente/<%=paciente._id%>">Delete</a></td>
-            </tr>
-        <% }) %>
-    </table>
-</body>
-</html>
+    <%Pacientes.forEach(function(paciente){%>
+    <tr>
+        <td><%=paciente.nome%></td>
+        <td><%=paciente.endereco%></td>
+        <td><%=paciente.datanasc%></td>
+        <td><%=paciente.sintomas%></td>
+        <td><a href="/edtpaciente/<%=paciente._id%>">Editar</a></td>
+        <td><a href="/delpaciente/<%=paciente._id%>">Delete</a></td>
+    </tr>
+    <% }) %>
+</table>
+<%-include('rodape.ejs')%>
