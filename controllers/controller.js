@@ -13,7 +13,7 @@ function add(req,res){
     let nome = req.body.nome
     let email = req.body.email
     let senha = req.body.senha
-    let foto = req.body.foto
+    let foto = req.file.filename
 
     let usuario = new Usuario({
         nome: nome,

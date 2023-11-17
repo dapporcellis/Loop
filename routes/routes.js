@@ -1,6 +1,9 @@
 const express = require('express');
 const router = express.Router();
 const controller = require('../controllers/controller');
+const multer = require('multer');
+const upload = multer({ dest: './public' })
+
 
 router.get('/',controller.abreindex)
 
@@ -8,7 +11,7 @@ router.get('/',controller.abreindex)
 router.get('/add',controller.abreadd)
 
 //rota para receber dados do formulário e adicionar ao banco mongodb
-router.post('/add',controller.add)
+router.post('/add', upload.single('foto'), controller.add)
 
 router.get('/lst',controller.listar)
 
