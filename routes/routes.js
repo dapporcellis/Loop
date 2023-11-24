@@ -28,4 +28,15 @@ router.post('/edtpaciente/:id', controller.edtpaciente)
 
 router.get('/delpaciente/:id', controller.delpaciente)
 
+router.get('/addconsulta', controller.abreaddconsulta)
+router.post('/addconsulta',controller.addconsulta)
+
+router.get('/lstconsulta',controller.lstconsulta)
+router.post('/lstconsulta',controller.pesquisaconsulta)
+
+router.get('/edtconsulta/:id', controller.abreedtconsulta)
+router.post('/edtconsulta/:id', controller.edtconsulta)
+
+router.get('/delconsulta/:id', controller.delconsulta)
+
 module.exports = router

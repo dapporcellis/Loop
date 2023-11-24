@@ -2,6 +2,7 @@ const conexao = require('../config/conexao.js')
 
 const ConsultaSchema = new conexao.Schema({
     sintomas: String,
+    diagnostico: String,
     receita: String,
     data: Date,
     paciente:{

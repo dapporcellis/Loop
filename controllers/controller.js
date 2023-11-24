@@ -108,7 +108,80 @@ function delpaciente(req,res){
         })
 }
 
+function abreaddconsulta(req,res){
+    res.render('addconsulta.ejs')
+}
 
+function addconsulta(req,res){
+    
+    let paciente = new Paciente({
+        nome: req.body.nome,
+        endereco: req.body.endereco,
+        datanasc: req.body.datanasc,
+        sintomas: req.body.sintomas
+    })
+    paciente.save().then(function(docs,err){
+        console.log(docs)
+        res.redirect('/addpaciente')
+    })
+}
+
+function lstconsulta(req,res){
+    Paciente.find({}).then(function(pacientes,err){
+        if(err){
+            res.send(err.message)
+        }else{
+            res.render('lstpaciente.ejs',{Pacientes:pacientes})
+        }
+    })
+}
+
+function pesquisaconsulta(req,res){
+    Paciente.find({nome: new RegExp(req.body.pesquisar, "i")}).then(function(pacientes,err){
+        if(err){
+            res.send(err.message)
+        }else{
+            res.render('lstpaciente.ejs',{Pacientes:pacientes})
+        }
+    })
+}
+
+
+function abreedtconsulta(req,res){
+    Paciente.findById(req.params.id).then(function(paciente,err){
+        if(err){
+            res.send(err.message)
+        }else{
+            res.render('edtpaciente.ejs',{Paciente:paciente})
+        }
+    })
+}
+
+function edtconsulta(req,res){
+    Paciente.findByIdAndUpdate(req.params.id, {
+        nome: req.body.nome,
+        endereco: req.body.endereco,
+        datanasc: req.body.datanasc,
+        sintomas: req.body.sintomas
+    }).then(function(paciente,err){
+        if(err){
+            res.send(err.message);
+        }else{
+            res.redirect('/lstpaciente');
+        }
+    })
+}
+
+function delconsulta(req,res){
+    Paciente.findByIdAndDelete(req.params.id)
+        .then(function(paciente,err){
+            if(err){
+                res.send(err.message);
+            }else{
+                res.redirect('/lstpaciente')
+            }
+        })
+}
 
 module.exports = {
     abreindex,
