@@ -6,6 +6,12 @@
     <input type="text" name="diagnostico" id="diagnostico" required placeholder="Digite o diagnóstico do paciente."><br>
     <label for="receita">Receita</label>
     <input type="text" name="receita" id="receita" required placeholder="Digite a receita para o paciente."><br>
+    <label for="paciente">Paciente</label>
+    <select name="paciente" id="paciente">
+        <%Pacientes.forEach(function(paciente){%>
+            <option value="<%=paciente._id%>"><%=paciente.nome%></option>
+        <% }) %>
+    </select>
     <input type="submit" value="Adicionar">
 </form>
 <%-include('rodape.ejs')%>
