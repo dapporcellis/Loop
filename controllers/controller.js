@@ -109,7 +109,13 @@ function delpaciente(req,res){
 }
 
 function abreaddconsulta(req,res){
-    res.render('addconsulta.ejs')
+    Paciente.find({}).then(function(pacientes,err){
+        if(err){
+            res.send(err.message)
+        }else{
+            res.render('addconsulta.ejs',{Pacientes:pacientes})
+        }
+    })
 }
 
 function addconsulta(req,res){
@@ -194,5 +200,12 @@ module.exports = {
     pesquisapaciente,
     delpaciente,
     abreedtpaciente,
-    edtpaciente
+    edtpaciente,
+    abreaddconsulta,
+    addconsulta,
+    lstconsulta,
+    pesquisaconsulta,
+    delconsulta,
+    abreedtconsulta,
+    edtconsulta
 }
