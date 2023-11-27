@@ -1,5 +1,6 @@
 const Usuario = require('../models/Usuario')
 const Paciente = require('../models/Paciente')
+const Consulta = require('../models/Consulta')
 
 function abreindex(req,res){
     res.render('index')
@@ -120,15 +121,16 @@ function abreaddconsulta(req,res){
 
 function addconsulta(req,res){
     
-    let paciente = new Paciente({
-        nome: req.body.nome,
-        endereco: req.body.endereco,
-        datanasc: req.body.datanasc,
-        sintomas: req.body.sintomas
+    let consulta = new Consulta({
+        sintomas: req.body.sintomas,
+        diagnostico: req.body.diagnostico,
+        receita: req.body.receita,
+        data: new Date(),
+        paciente: req.body.paciente
     })
-    paciente.save().then(function(docs,err){
+    consulta.save().then(function(docs,err){
         console.log(docs)
-        res.redirect('/addpaciente')
+        res.redirect('/addconsulta')
     })
 }
 
