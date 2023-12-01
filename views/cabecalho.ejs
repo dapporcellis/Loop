@@ -1,33 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Adicionar</title>
-    <style>
-        input, textarea{
-            padding: 10px;
-            border: 1px solid black;
-            margin: 5px;
-            border-radius: 5px;
-        }
-        input[type="submit"]{
-            display: block;
-        }
-        table,td,th{
-            border: 1px solid black;
-            border-collapse: collapse;
-        }
-        td,th{
-            padding: 5px 3px;
-        }
-    </style>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+        integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
 </head>
-<body>
-    <h1>Sistema de Consultas</h1>
-    <ul>
-        <li><a href="/addpaciente">Adicionar Paciente</a></li>
-        <li><a href="/lstpaciente">Listar Pacientes</a></li>
-        <li><a href="/addconsulta">Adicionar Consulta</a></li>
-        <li><a href="/lstconsulta">Listar Consultas</a></li>
-    </ul>
+
+<body class="container">
+    <div class="row">
+        <div class="col">
+            <h1>Sistema de Consultas</h1>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-2">
+            <ul>
+                <li><a href="/addpaciente">Adicionar Paciente</a></li>
+                <li><a href="/lstpaciente">Listar Pacientes</a></li>
+                <li><a href="/addconsulta">Adicionar Consulta</a></li>
+                <li><a href="/lstconsulta">Listar Consultas</a></li>
+            </ul>
+        </div>
+        <div class="col-8">
