@@ -135,11 +135,11 @@ function addconsulta(req,res){
 }
 
 function lstconsulta(req,res){
-    Paciente.find({}).then(function(pacientes,err){
+    Consulta.find({}).populate('paciente').then(function(consultas,err){
         if(err){
             res.send(err.message)
         }else{
-            res.render('lstpaciente.ejs',{Pacientes:pacientes})
+            res.render('lstconsulta.ejs',{Consultas:consultas})
         }
     })
 }

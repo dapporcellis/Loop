@@ -1,0 +1,28 @@
+<%-include('cabecalho.ejs')%>
+
+<form method="post">
+    <input type="text" name="pesquisar" id="pesquisar">
+    <input type="submit" value="Pesquisar">
+</form>
+
+
+<table>
+    <tr>
+        <th>Data e Hora</th>
+        <th>Paciente</th>
+        <th>Diagnóstico</th>
+        <th>Editar</th>
+        <th>Delete</th>
+    </tr>
+
+    <%Consultas.forEach(function(consulta){%>
+    <tr>
+        <td><%=moment(consulta.data).format('DD/MM/YYYY HH:mm') %></td>
+        <td><%=consulta.paciente.nome%></td>
+        <td><%=consulta.diagnostico%></td>
+        <td><a href="/edtconsulta/<%=consulta._id%>">Editar</a></td>
+        <td><a href="/delconsulta/<%=consulta._id%>">Delete</a></td>
+    </tr>
+    <% }) %>
+</table>
+<%-include('rodape.ejs')%>

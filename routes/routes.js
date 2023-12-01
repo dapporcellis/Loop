@@ -39,4 +39,5 @@ router.post('/edtconsulta/:id', controller.edtconsulta)
 
 router.get('/delconsulta/:id', controller.delconsulta)
 
+
 module.exports = router
